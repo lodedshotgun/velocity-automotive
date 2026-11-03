@@ -1,8 +1,9 @@
-
 FROM nginx:alpine
 
-COPY "student info/index.html" /usr/share/nginx/html/index.html
-COPY "student info/styles.css" /usr/share/nginx/html/styles.css
-COPY "student info/script.js" /usr/share/nginx/html/script.js
+WORKDIR /app
+
+COPY . .
+
+RUN cp -r "student info/." /usr/share/nginx/html/
 
 EXPOSE 80
